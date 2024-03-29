@@ -39,20 +39,17 @@ func _ready():
 		multimesh.set_instance_transform(i, Transform3D(Basis(), vec))
 		# vertices.append(vec)
 	
-
-
-
 	
-func spherical_to_cartesian(r, lat_theta, lon_phi):
+func spherical_to_cartesian(r, lon_phi, lat_theta):
 	var radius = float(r)
-	#var theta = deg_to_rad(float(lat_theta))
-	#var phi = deg_to_rad(float(lon_phi))
-	var theta = float(lat_theta)
-	var phi = float(lon_phi)
+	var theta = deg_to_rad(float(lat_theta))
+	var phi = deg_to_rad(float(lon_phi))
+	#var theta = float(lat_theta)
+	#var phi = float(lon_phi)
 	
-	var x = r * sin(phi) * cos(theta)
-	var y = r * sin(phi) * sin(theta)
-	var z = r * cos(phi)
+	var x = r * cos(theta) * cos(phi)
+	var y = r * cos(theta) * sin(phi)
+	var z = r * sin(theta)
 	return Vector3(x, y, z)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
