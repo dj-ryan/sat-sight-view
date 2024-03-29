@@ -26,7 +26,13 @@ func _ready():
 	multimesh.mesh = $"../star".mesh.duplicate()
 	multimesh.use_colors = true
 	multimesh.instance_count = HOW_MANY
-
+	
+	# create sphere mesh instead of duplicating one, not working
+	#var sphere_mesh = SphereMesh.new()
+	#var material = StandardMaterial3D.new()
+	#material.vertex_color_use_as_albedo = true
+	#material.albedo_color = Color.WHITE
+	#sphere_mesh.material = material
 
 	for i in range(data["GLON"].size()-1):
 		var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
