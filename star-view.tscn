@@ -31,7 +31,7 @@ script = ExtResource("1_nnoax")
 [node name="Camera3D" type="Camera3D" parent="."]
 projection = 1
 fov = 15.0
-size = 2.0
+size = 3.0
 script = ExtResource("2_7i0xp")
 
 [node name="universe" type="MeshInstance3D" parent="."]
