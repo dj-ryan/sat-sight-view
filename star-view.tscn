@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq5xjwdg80mn5"]
+[gd_scene load_steps=9 format=3 uid="uid://dq5xjwdg80mn5"]
 
 [ext_resource type="Script" path="res://star-view.gd" id="1_nnoax"]
 [ext_resource type="Script" path="res://camera.gd" id="2_7i0xp"]
@@ -8,9 +8,14 @@
 radius = 10.0
 height = 20.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sb5g"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0)
+
 [sub_resource type="SphereMesh" id="SphereMesh_wpxcm"]
-radius = 0.005
-height = 0.01
+material = SubResource("StandardMaterial3D_2sb5g")
+radius = 0.01
+height = 0.02
 radial_segments = 4
 rings = 3
 

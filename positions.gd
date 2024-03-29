@@ -24,13 +24,14 @@ func _ready():
 	multimesh = MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = $"../star".mesh.duplicate()
-	multimesh.instance_count = HOW_MANY
 	multimesh.use_colors = true
+	multimesh.instance_count = HOW_MANY
+
 
 	for i in range(data["GLON"].size()-1):
 		var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
+		multimesh.set_instance_color(i, Color(data["COLOR"][i]))
 		multimesh.set_instance_transform(i, Transform3D(Basis(), vec))
-		multimesh.set_instance_color(i, Color(1, 1, 0, 1))
 
 	
 	
