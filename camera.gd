@@ -61,7 +61,7 @@ func _input(event):
 # Updates mouselook and movement every frame
 func _process(delta):
 	_update_mouselook()
-	_update_movement(delta) # don't allow movment
+	# _update_movement(delta) # don't allow movment
 
 # Updates camera movement
 func _update_movement(delta):
