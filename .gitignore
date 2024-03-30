@@ -1,6 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 
+# screenshots
+.screenshots/
+
 # Godot-specific ignores
 .import/
 export.cfg

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://star-view.gd" id="1_nnoax"]
 [ext_resource type="Script" path="res://camera.gd" id="2_7i0xp"]
-[ext_resource type="Script" path="res://positions.gd" id="3_xec67"]
+[ext_resource type="Script" path="res://star-positions.gd" id="3_xec67"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ryj24"]
 radius = 10.0
