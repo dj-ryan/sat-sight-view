@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
+[display]
+
+window/size/viewport_width=648
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

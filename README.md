@@ -1,8 +1,17 @@
-# star viewer based on galactic lon and lat
+# Sat-Sight-View
+A simulation of the Yale bright star catalog using an orthogonal projection. 
+Stars are position acording to their galactic longitude and latitude.
 
+Used to capture simi-relistic data of the night sky for trainning a satilite star tracker
 
 ## Usage
-Press: `CTRL` + `ALT` + `S` to take a screenshot
-Press: `F3` to bring up the debug overlay
+Hold the Right Mouse button to translate the camera orientation
+
+Press: `CTRL` + `ALT` + `S` to take a screenshot. Screenshots will be saved
+with a date and time of the format: YYYY-MM-DD-HHMMSS followed by the euler angles
+that the image was caputred at with the format: [x,y]
+
+Press: `F3` to bring up the debug overlay to view FPS and preformance
+
 
 
