@@ -1,10 +1,10 @@
 extends MultiMeshInstance3D
 
-const HOW_MANY : int = 9096 #short 997
+var star_count = 0 # : int = 9096 #short 997
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var file = FileAccess.open("res://data/star_formated_raw.csv", FileAccess.READ)
+	var file = FileAccess.open("res://data/orion.csv", FileAccess.READ)
 
 	var headers = file.get_csv_line(",")  # Get column names
 	var data = {}  # A dictionary to store column data
@@ -16,7 +16,9 @@ func _ready():
 	# Read data and populate arrays
 	while not file.eof_reached():
 		var values = file.get_csv_line(",")
+		star_count += 1
 		for i in range(values.size()):
+			# print("hit: " + String.num(i))
 			data[headers[i]].append(values[i])
 
 	file.close()
@@ -25,7 +27,8 @@ func _ready():
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = $"../star".mesh.duplicate()
 	multimesh.use_colors = true
-	multimesh.instance_count = HOW_MANY
+	print("Star Count: " + String.num(star_count))
+	multimesh.instance_count = star_count
 	
 	# create sphere mesh instead of duplicating one, not working
 	#var sphere_mesh = SphereMesh.new()
@@ -49,7 +52,7 @@ func spherical_to_cartesian(r, lon_phi, lat_theta):
 	var x = r * cos(theta) * cos(phi)
 	var y = r * cos(theta) * sin(phi)
 	var z = r * sin(theta)
-	return Vector3(x, y, z)
+	return Vector3(x, y, -z)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

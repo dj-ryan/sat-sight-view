@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var fps: Label
 @export var frame_time: Label
 @export var frame_number: Label
+# @export var camera_angle: Label
 @export var frame_history_total_avg: Label
 @export var frame_history_total_min: Label
 @export var frame_history_total_max: Label
@@ -40,6 +41,8 @@ enum Style {
 	MAX,  ## Represents the size of the Style enum.
 }
 
+var camera_angle_preload = preload("res://star-view.tscn").instantiate()
+
 ## The style to use when drawing the debug menu.
 var style := Style.HIDDEN:
 	set(value):
@@ -50,6 +53,8 @@ var style := Style.HIDDEN:
 			Style.VISIBLE_COMPACT, Style.VISIBLE_DETAILED:
 				visible = true
 				frame_number.visible = style == Style.VISIBLE_DETAILED
+				# $DebugMenu/VBoxContainer/CameraAngle.visible = style == Style.VISIBLE_DETAILED
+				# camera_angle.visible = style == Style.VISIBLE_DETAILED
 				$DebugMenu/VBoxContainer/FrameTimeHistory.visible = style == Style.VISIBLE_DETAILED
 				$DebugMenu/VBoxContainer/FPSGraph.visible = style == Style.VISIBLE_DETAILED
 				$DebugMenu/VBoxContainer/TotalGraph.visible = style == Style.VISIBLE_DETAILED
@@ -459,6 +464,15 @@ func _process(_delta: float) -> void:
 				frame_time.text += " (" + vsync_string + ")"
 
 		frame_number.text = "Frame: " + str(Engine.get_frames_drawn())
+		
+		# var rotation_degrees = camera_angle_preload.get_node("Camera3D").get_global_transform().basis.get_euler() * 180 / PI
+		#var rot_x = String.num(rotation_degrees.x)
+		#var rot_y = String.num(rotation_degrees.y)
+		#camera_angle.text = "Camera Angle: " + rot_x + " " + rot_y
+		
+		# camera_angle.text = "Camera Angle: " #+ str(rotation_degrees)
+		
+		
 
 	last_tick = Time.get_ticks_usec()
 
