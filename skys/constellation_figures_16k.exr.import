@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gcq1fg2wdsre"
-path.bptc="res://.godot/imported/hiptyc_2020_16k_gal.exr-10fdf6312b526ab82c4813cba6539237.bptc.ctex"
+uid="uid://pk46ocix06hl"
+path.bptc="res://.godot/imported/constellation_figures_16k.exr-b721689847853de3c137c6b2dc010d3b.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://hiptyc_2020_16k_gal.exr"
-dest_files=["res://.godot/imported/hiptyc_2020_16k_gal.exr-10fdf6312b526ab82c4813cba6539237.bptc.ctex"]
+source_file="res://skys/constellation_figures_16k.exr"
+dest_files=["res://.godot/imported/constellation_figures_16k.exr-b721689847853de3c137c6b2dc010d3b.bptc.ctex"]
 
 [params]
 

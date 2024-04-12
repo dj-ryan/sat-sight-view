@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pk46ocix06hl"
-path.bptc="res://.godot/imported/vertopal.com_constellation_figures_16k.exr-b6596f194a5550e7a6b11a6332720394.bptc.ctex"
+uid="uid://b661vylki0hga"
+path.bptc="res://.godot/imported/celestial_grid_16k.exr-f06ae0c94256912816310aad0d6d657c.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vertopal.com_constellation_figures_16k.exr"
-dest_files=["res://.godot/imported/vertopal.com_constellation_figures_16k.exr-b6596f194a5550e7a6b11a6332720394.bptc.ctex"]
+source_file="res://skys/celestial_grid_16k.exr"
+dest_files=["res://.godot/imported/celestial_grid_16k.exr-f06ae0c94256912816310aad0d6d657c.bptc.ctex"]
 
 [params]
 
