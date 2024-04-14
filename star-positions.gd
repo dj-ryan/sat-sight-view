@@ -4,7 +4,7 @@ var star_count = 0 # : int = 9096 #short 997
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var file = FileAccess.open("res://data/polaris.csv", FileAccess.READ)
+	var file = FileAccess.open("res://data/star_formated_raw.csv", FileAccess.READ)
 
 	var headers = file.get_csv_line(",")  # Get column names
 	var data = {}  # A dictionary to store column data
@@ -40,6 +40,7 @@ func _ready():
 	for i in range(data["GLON"].size()):
 		var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
 		multimesh.set_instance_color(i, Color(data["COLOR"][i]))
+		
 		multimesh.set_instance_transform(i, Transform3D(Basis(), vec))
 
 	
@@ -52,7 +53,7 @@ func spherical_to_cartesian(r, lon_phi, lat_theta):
 	var x = r * cos(theta) * cos(phi)
 	var y = r * cos(theta) * sin(phi)
 	var z = r * sin(theta)
-	return Vector3(x, y, -z)
+	return Vector3(x, y, z)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
