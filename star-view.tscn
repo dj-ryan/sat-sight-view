@@ -10,10 +10,10 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_wpxcm"]
 material = SubResource("StandardMaterial3D_686bi")
-radius = 0.05
-height = 0.1
-radial_segments = 4
-rings = 3
+radius = 0.03
+height = 0.06
+radial_segments = 5
+rings = 5
 
 [sub_resource type="MultiMesh" id="MultiMesh_l2wtg"]
 transform_format = 1
@@ -30,6 +30,7 @@ sky_material = SubResource("PanoramaSkyMaterial_8llqm")
 [sub_resource type="Environment" id="Environment_aissk"]
 background_mode = 2
 sky = SubResource("Sky_dx654")
+sky_rotation = Vector3(0, 1.5708, 0)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
@@ -37,7 +38,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_ow10k")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-fov = 30.0
+fov = 70.0
 size = 3.473
 script = ExtResource("2_7i0xp")
 

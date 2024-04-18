@@ -4,7 +4,7 @@ var star_count = 0 # : int = 9096 #short 997
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var file = FileAccess.open("res://data/star_formated_raw.csv", FileAccess.READ)
+	var file = FileAccess.open("res://data/star_pos.csv", FileAccess.READ)
 
 	var headers = file.get_csv_line(",")  # Get column names
 	var data = {}  # A dictionary to store column data
@@ -37,11 +37,15 @@ func _ready():
 	#material.albedo_color = Color.WHITE
 	#sphere_mesh.material = material
 
-	for i in range(data["GLON"].size()):
-		var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
+	for i in range(data["COLOR"].size() - 1): # dont iterate
+		#var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
 		multimesh.set_instance_color(i, Color(data["COLOR"][i]))
+		var calc_x = float(data["calc_x"][i])
+		var calc_y = float(data["calc_y"][i])
+		var calc_z = float(data["calc_z"][i])
 		
-		multimesh.set_instance_transform(i, Transform3D(Basis(), vec))
+		var position = Vector3(calc_x, calc_z, -calc_y) # X Y Z
+		multimesh.set_instance_transform(i, Transform3D(Basis(), position))
 
 	
 	

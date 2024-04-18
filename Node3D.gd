@@ -2,8 +2,9 @@ extends Node3D
 
 var sky_textures = [
 	#preload("res://skys/celestial_grid_16k.png"),
-	#preload("res://skys/constellation_figures_16k.png"),
+	preload("res://skys/constellation_figures_16k_gal.png"),
 	#preload("res://skys/hiptyc_2020_16k_gal.png"),
+	preload("res://skys/blank.png"),
 	# Add more sky textures here
 ]
 
@@ -24,13 +25,14 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("change_sky"):
 		print("changing sky to:" + String.num(current_sky_index))
-		current_sky_index = (current_sky_index + 1) % sky_textures.size()
 		var environment = get_world_3d().environment.sky
 
 		if environment: # Check if it exists
 			var my_new_mat = PanoramaSkyMaterial.new()
 			my_new_mat.set_panorama(sky_textures[current_sky_index])
 			environment.set_material(my_new_mat)
+			
+		current_sky_index = (current_sky_index + 1) % sky_textures.size()
 	
 	if event.is_action_pressed("take_screenshot"):
 		#var image = get_viewport().get_texture().get_image()

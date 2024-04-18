@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ns6xhum622h"
-path="res://.godot/imported/constellation_figures_16k.png-c4bf92f76bc0f64c87eb5b191769b8bc.ctex"
+uid="uid://c01qryoqopk5e"
+path="res://.godot/imported/constellation_figures_16k_gal.png-24d2d3b87bfef88fe835e5c329e2dd5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skys/constellation_figures_16k.png"
-dest_files=["res://.godot/imported/constellation_figures_16k.png-c4bf92f76bc0f64c87eb5b191769b8bc.ctex"]
+source_file="res://skys/constellation_figures_16k_gal.png"
+dest_files=["res://.godot/imported/constellation_figures_16k_gal.png-24d2d3b87bfef88fe835e5c329e2dd5f.ctex"]
 
 [params]
 
