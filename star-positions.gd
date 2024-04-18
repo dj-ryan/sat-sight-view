@@ -38,7 +38,6 @@ func _ready():
 	#sphere_mesh.material = material
 
 	for i in range(data["COLOR"].size() - 1): # dont iterate
-		#var vec = spherical_to_cartesian(10,data["GLON"][i], data["GLAT"][i])
 		multimesh.set_instance_color(i, Color(data["COLOR"][i]))
 		var calc_x = float(data["calc_x"][i])
 		var calc_y = float(data["calc_y"][i])
@@ -46,18 +45,6 @@ func _ready():
 		
 		var position = Vector3(calc_x, calc_z, -calc_y) # X Y Z
 		multimesh.set_instance_transform(i, Transform3D(Basis(), position))
-
-	
-	
-func spherical_to_cartesian(r, lon_phi, lat_theta):
-	var radius = float(r)
-	var theta = deg_to_rad(float(lat_theta))
-	var phi = deg_to_rad(float(lon_phi))
-	
-	var x = r * cos(theta) * cos(phi)
-	var y = r * cos(theta) * sin(phi)
-	var z = r * sin(theta)
-	return Vector3(x, y, z)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,9 +1,9 @@
 extends Node3D
 
 var sky_textures = [
-	#preload("res://skys/celestial_grid_16k.png"),
+	preload("res://skys/celestial_grid_16k.png"),
 	preload("res://skys/constellation_figures_16k_gal.png"),
-	#preload("res://skys/hiptyc_2020_16k_gal.png"),
+	# preload("res://skys/hiptyc_2020_16k_gal.png"),
 	preload("res://skys/blank.png"),
 	# Add more sky textures here
 ]
@@ -38,10 +38,12 @@ func _input(event: InputEvent) -> void:
 		#var image = get_viewport().get_texture().get_image()
 		var date = Time.get_date_string_from_system().replace(".","")
 		var time :String = Time.get_time_string_from_system().replace(":","")
-		var rotation_degrees = get_node("Camera3D").get_global_transform().basis.get_euler() * 180 / PI
+		var rotation = get_node("Camera3D").get_global_transform().basis.get_euler() * 180 / PI
 		#var rot_x = String.num(rotation_degrees.x)
 		#var rot_y = String.num(rotation_degrees.y)
-		print("X:%.4f" % rotation_degrees.x + " Y:%.4f" % rotation_degrees.y)
+		var rot_y = rotation.y + 90 # need to add 90 for the sky offset
+		print("X:%.4f" % rotation.x + " Y:%.4f" % rot_y)
+		print("X: " + String.num(rotation.x) + " Y: " + String.num(rotation.y))
 		#var screenshot_path = "user://screenshots/" + "screenshot_" + date + "-" + time + "_[" + "%.4f" % rotation_degrees.x + "_" + "%.4f" % rotation_degrees.y + "].png" # the path for our screenshot.
 
 		# Save the image in PNG format (cleaner than JPG)

@@ -10,8 +10,8 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_wpxcm"]
 material = SubResource("StandardMaterial3D_686bi")
-radius = 0.03
-height = 0.06
+radius = 0.01
+height = 0.02
 radial_segments = 5
 rings = 5
 
@@ -38,7 +38,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_ow10k")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-fov = 70.0
+fov = 15.0
 size = 3.473
 script = ExtResource("2_7i0xp")
 
