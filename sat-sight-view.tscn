@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw2g33xrl84m7"]
+
+[ext_resource type="Script" path="res://sat-sight-view.gd" id="1_8jpfl"]
+[ext_resource type="Script" path="res://camera.gd" id="1_uymtd"]
+[ext_resource type="Script" path="res://universe.gd" id="2_ohn8o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3rlw"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_i8nq0"]
+material = SubResource("StandardMaterial3D_e3rlw")
+radius = 0.01
+height = 0.02
+radial_segments = 5
+rings = 5
+
+[sub_resource type="Sky" id="Sky_yt4wf"]
+
+[sub_resource type="Environment" id="Environment_a0jtu"]
+background_mode = 2
+sky = SubResource("Sky_yt4wf")
+sky_rotation = Vector3(0, 1.5708, 0)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_8jpfl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 15.0
+script = ExtResource("1_uymtd")
+
+[node name="universe" type="MultiMeshInstance3D" parent="."]
+script = ExtResource("2_ohn8o")
+
+[node name="star" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_i8nq0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a0jtu")
