@@ -21,7 +21,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("ChangeSky"):
-		print("changing sky to:" + String.num(current_sky_index))
+		print("Changing sky to:" + String.num(current_sky_index))
 		var environment = get_world_3d().environment.sky
 
 		if environment: # Check if it exists
@@ -38,11 +38,23 @@ func _input(event: InputEvent) -> void:
 		var rotation = get_node("Camera3D").get_global_transform().basis.get_euler() * 180 / PI
 		#var rot_x = String.num(rotation_degrees.x)
 		#var rot_y = String.num(rotation_degrees.y)
-		var rot_y = rotation.y + 90 # need to add 90 for the sky offset
-		print("X:%.4f" % rotation.x + " Y:%.4f" % rot_y)
+		var lambda = rotation.y
+		var phi = rotation.x
+		
+		# convert to 360 degrees
+		if lambda < 0:
+			lambda += 360
+		# shfit 90 degrees
+		if lambda < 270:
+			lambda += 90
+		else:
+			lambda -= 270
+	
+		print("phi: %.4f" % phi + " lambda: %.4f" % lambda)
+		print("raw - phi: " + String.num(rotation.x) + " lambda: " + String.num(rotation.y))
 		# print("X: " + String.num(rotation.x) + " Y: " + String.num(rotation.y))
 		# var screenshot_path = "user://screenshots/" + "screenshot_" + date + "-" + time + "_[" + "%.4f" % rotation_degrees.x + "_" + "%.4f" % rot_y + "].png" # the path for our screenshot.
-		var screenshot_path = "user://screenshots/" + "screenshot_[" + "%.4f" % rotation.x + "_" + "%.4f" % rot_y + "].png" # the path for our screenshot.
+		var screenshot_path = "user://screenshots/" + "screenshot_[" + "%.4f" % phi + "_" + "%.4f" % lambda + "].png" # the path for our screenshot.
 		# Save the image in PNG format (cleaner than JPG)
 		image.save_png(screenshot_path)
 		

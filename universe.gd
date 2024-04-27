@@ -37,7 +37,7 @@ func _ready():
 		var calc_z = float(data["z"][i])
 		
 		var position = Vector3(calc_x, calc_z, -calc_y) # X Y Z
-		print(position)
+		# print(position)
 		multimesh.set_instance_transform(i, Transform3D(Basis(), position))
 
 
