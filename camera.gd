@@ -64,6 +64,7 @@ func _input(event):
 		if toggle_movment:
 			toggle_movment = false
 			print("Movment: OFF")
+			reset_camera()
 		else: 
 			toggle_movment = true
 			print("Movment: ON")
@@ -73,6 +74,9 @@ func _process(delta):
 	_update_mouselook()
 	if toggle_movment:
 		_update_movement(delta)
+
+func reset_camera():
+	transform = Transform3D()  # Reset to the origin
 
 # Updates camera movement
 func _update_movement(delta):
