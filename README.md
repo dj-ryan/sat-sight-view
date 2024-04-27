@@ -1,6 +1,6 @@
 # Sat-Sight-View
 
-![icon.png]
+<p align="center"><img src="icon.png" width="30%"></img></p>
 
 **A simulation of the Yale bright star catalog. Stars are position according to their galactic 
 longitude and latitude.**
