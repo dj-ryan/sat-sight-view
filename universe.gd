@@ -31,6 +31,9 @@ func _ready():
 	multimesh.instance_count = star_count
 	
 	for i in range(data["x"].size() - 1):
+		# If there is a Error on this line.
+		# Your CSV file has an extra line at the end of the file that gets added when opening in Excel
+		# Open with notepad and scroll to the last row and delete it.
 		multimesh.set_instance_color(i, Color(data["color"][i]))
 		var calc_x = float(data["x"][i])
 		var calc_y = float(data["y"][i])

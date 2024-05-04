@@ -45,9 +45,12 @@ func load_camera_positions():
 	var file = FileAccess.open("res://data/camera_pos.csv", FileAccess.READ)
 	var _headers = file.get_csv_line(",")  # Get column names
 	while not file.eof_reached():
-		#var line = file.get_line().split(",")
+		# var line = file.get_line().split(",")
 		var line = file.get_csv_line(",")
 		#print(line)
+		# If there is a `Invalid get index '1' (on base: 'PackedStringArray').` Error on this line.
+		# Your CSV file has an extra line at the end of the file that gets added when opening in Excel
+		# Open with notepad and scroll to the last row and delete it.
 		camera_positions.append(Vector3(float(line[0]), float(line[1]), float(line[2])))
 	file.close()
 

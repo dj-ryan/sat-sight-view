@@ -27,6 +27,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_8jpfl")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 fov = 15.0
 script = ExtResource("1_uymtd")
 

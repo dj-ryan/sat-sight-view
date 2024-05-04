@@ -76,7 +76,7 @@ func _process(delta):
 		_update_movement(delta)
 
 func reset_camera():
-	transform = Transform3D()  # Reset to the origin
+	transform = Transform3D() # Reset to origin
 
 # Updates camera movement
 func _update_movement(delta):
